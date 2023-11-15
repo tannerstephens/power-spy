@@ -11,7 +11,7 @@ def home():
 
 
 @views.route("/update")
-def home():
+def update_page():
     return render_template("update.html")
 
 
