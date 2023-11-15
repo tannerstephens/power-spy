@@ -1,0 +1,12 @@
+[Unit]
+Description=power-spy
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/power-spy
+ExecStart=/srv/power-spy/.venv/bin/gunicorn --bind 0.0.0.0:80 -w 1 "power_spy:create_app()"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
