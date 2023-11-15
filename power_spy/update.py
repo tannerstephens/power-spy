@@ -1,15 +1,22 @@
 import subprocess
 import threading
+from os import remove
 from pathlib import Path
 
 app_dir = Path(__file__).parent.parent.resolve()
+
+UPDATING_FILE_PATH = Path("/tmp/updating")
 
 
 def update():
     threading.Thread(target=_update).start()
 
 
-def check_for_update():
+def is_updating():
+    return UPDATING_FILE_PATH.exists()
+
+
+def update_available():
     subprocess.call(["git", "remote", "update"])
     git_status = subprocess.Popen(
         ["git", "status", "-uno"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -20,5 +27,9 @@ def check_for_update():
 
 
 def _update():
+    UPDATING_FILE_PATH.touch()
+
     subprocess.call(["/bin/bash", app_dir / "maintainence" / "update.sh"])
     subprocess.call(["/bin/bash", app_dir / "maintainence" / "install.sh"], cwd=app_dir)
+
+    UPDATING_FILE_PATH.unlink()

@@ -1,23 +1,13 @@
 from flask import Flask
 
-from .update import check_for_update, update
+from .config import Config
+from .views import views
 
 
-def create_app():
+def create_app(config=Config):
     app = Flask(__name__)
 
-    @app.route("/")
-    def page():
-        return str(check_for_update())
-
-    @app.route("/update")
-    def doIt():
-        update()
-
-        return "updating"
-
-    @app.route("/test")
-    def test():
-        return "test"
+    app.config.from_object(config)
+    app.register_blueprint(views)
 
     return app
