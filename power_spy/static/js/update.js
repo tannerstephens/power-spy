@@ -33,6 +33,6 @@ window.onload = () => {
     fetch('/api/update')
     .then(response => response.json())
     .then(data => {
-        updateButton.disabled = !data.update_available;
+        updateButton.disabled = !data.updatable;
     });
 };
