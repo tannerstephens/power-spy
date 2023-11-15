@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, render_template
-from update import is_updating, update, update_available
+
+from .update import is_updating, update, update_available
 
 views = Blueprint("views", __name__)
 
