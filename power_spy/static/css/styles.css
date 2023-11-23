@@ -1,3 +1,7 @@
+html, body {
+    background-color: #bbb;
+}
+
 .lds-ring {
     display: inline-block;
     position: relative;
