@@ -9,11 +9,13 @@ window.onload = () => {
                     powerButton.classList.remove('is-warning', 'is-danger');
                     powerButton.classList.add('is-success');
 
+                    powerButton.innerHTML = '😄';
                     powerButton.disabled = true;
                 } else {
                     powerButton.classList.remove('is-warning', 'is-success');
                     powerButton.classList.add('is-danger');
 
+                    powerButton.innerHTML = '😓';
                     powerButton.disabled = false;
                 }
 

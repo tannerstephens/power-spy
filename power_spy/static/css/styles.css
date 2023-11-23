@@ -3,12 +3,11 @@ html, body {
 }
 
 .spinner {
-    margin: auto;
     width: 100%;
 }
 
 .lds-ring {
-    text-align: center;
+    margin: 0 auto;
     display: inline-block;
     position: relative;
     width: 15vw;
