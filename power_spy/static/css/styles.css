@@ -8,8 +8,6 @@ html, body {
 
 .lds-ring {
     margin: 0 auto;
-    display: inline-block;
-    position: relative;
     width: 15vw;
     height: 15vw;
 }
