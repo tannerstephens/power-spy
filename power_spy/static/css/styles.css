@@ -5,8 +5,8 @@ html, body {
 .lds-ring {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 15vw;
+    height: 15vw;
 }
 
 .lds-ring div {
@@ -16,10 +16,10 @@ html, body {
     width: 15vw;
     height: 15vw;
     margin: 8px;
-    border: 8px solid #fff;
+    border: 8px solid #77f;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: #77f transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
