@@ -13,8 +13,8 @@ html, body {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 0.15vw;
-    height: 0.15vw;
+    width: 15vw;
+    height: 15vw;
     margin: 8px;
     border: 8px solid #fff;
     border-radius: 50%;
