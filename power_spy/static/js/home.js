@@ -23,8 +23,8 @@ window.onload = () => {
 
     updateStatus();
 
-    powerButton.onclick(() => {
+    powerButton.onclick = () => {
         fetch('/api/power', {method: 'POST'});
         powerButton.disabled = true;
-    });
+    };
 }
