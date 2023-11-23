@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, render_template
 
+from .powerspy import is_pc_on, press_power_button
 from .update import is_updating, update, update_available
 
 views = Blueprint("views", __name__)
@@ -34,6 +35,19 @@ def do_update():
 @api.route("/updating")
 def update_status():
     return jsonify({"updating": is_updating()})
+
+
+@api.route("/power", methods=["GET"])
+def power_status():
+    return jsonify({"status": is_pc_on()})
+
+
+@api.route("/power", methods=["POST"])
+def power_on():
+    if not is_pc_on():
+        press_power_button()
+
+    return jsonify({"success": True})
 
 
 views.register_blueprint(api)
