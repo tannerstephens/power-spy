@@ -87,5 +87,9 @@ def api_login():
 
     return jsonify({"success": success})
 
+@api.route("/reboot", methods=["GET"])
+def reboot():
+    if logged_in():
+        
 
 views.register_blueprint(api)
