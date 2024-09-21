@@ -21,3 +21,12 @@ def press_power_button():
     power_button.off()
 
     power_button.close()
+
+def hard_reboot():
+    power_button = LED(25)
+
+    power_button.on()
+    sleep(6)
+    power_button.off()
+
+    power_button.close()
