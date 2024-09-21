@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, redirect, render_template, request, session
 
 from .login import check_password
-from .powerspy import is_pc_on, press_power_button
+from .powerspy import is_pc_on, press_power_button, hard_reboot
 from .update import is_updating, update, update_available
 
 views = Blueprint("views", __name__)
@@ -90,6 +90,9 @@ def api_login():
 @api.route("/reboot", methods=["GET"])
 def reboot():
     if logged_in():
+        hard_reboot()
+
+    return redirect("/")
         
 
 views.register_blueprint(api)
