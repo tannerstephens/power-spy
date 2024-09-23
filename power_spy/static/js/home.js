@@ -1,5 +1,6 @@
 window.onload = () => {
     const powerButton = document.getElementById('powerButton');
+    const holdButton = document.getElementById('holdButton');
 
     const updateStatus = () => {
         fetch('/api/power')
@@ -29,4 +30,9 @@ window.onload = () => {
         fetch('/api/power', {method: 'POST'});
         powerButton.disabled = true;
     };
+
+    holdButton.onclick = () => {
+        fetch('/api/reboot', {method: 'GET'});
+        holdButton.disabled = true;
+    }
 }
